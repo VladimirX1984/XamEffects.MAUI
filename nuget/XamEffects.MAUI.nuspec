@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>XamEffects</id>
+    <version>1.7.1</version>
+    <authors>Vladislav Zhukov and Vladimir Khovanskiy</authors>
+    <owners>mrxten</owners>
+    <licenseUrl>https://github.com/mrxten/XamEffects/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mrxten/XamEffects</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/mrxten/XamEffects/master/nuget/XamEffects_icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NET MAUI UI effects.</description>
+    <copyright>Copyright 2024</copyright>
+    <tags>net.maui effects</tags>    
+    <dependencies>
+      <group targetFramework="net8.0">
+		<dependency id="Microsoft.Maui.Controls" version="8.0.72" />
+		<dependency id="Microsoft.Maui.Controls.Compatibility" version="8.0.72" />
+      </group>
+      <group targetFramework="net8.0-android34.0">
+		<dependency id="Microsoft.Maui.Controls" version="8.0.72" />
+		<dependency id="Microsoft.Maui.Controls.Compatibility" version="8.0.72" />
+      </group>
+      <group targetFramework="net8.0-ios17">
+		<dependency id="Microsoft.Maui.Controls" version="8.0.72" />
+		<dependency id="Microsoft.Maui.Controls.Compatibility" version="8.0.72" />
+      </group>
+    </dependencies>
+
+  </metadata>
+	<files>
+	  <!--NETStandard-->
+	  <file src="..\src\XamEffects.MAUI\bin\Release\net8.0\XamEffects.MAUI.dll" target="lib\net8.0" />
+	  <file src="..\src\XamEffects.MAUI\bin\Release\net8.0\XamEffects.MAUI.pdb" target="lib\net8.0" />
+
+	  <!--Android-->
+	  <file src="..\src\XamEffects.MAUI\bin\Release\net8.0-android\XamEffects.MAUI.dll" target="lib\net8.0-android34.0" />
+	  <file src="..\src\XamEffects.MAUI\bin\Release\net8.0-android\XamEffects.MAUI.pdb" target="lib\net8.0-android34.0" />
+
+	  <!--IOS-->
+	  <file src="..\src\XamEffects.MAUI\bin\Release\net8.0-ios\XamEffects.MAUI.dll" target="lib\net8.0-ios17" />
+	  <file src="..\src\XamEffects.MAUI\bin\Release\net8.0-ios\XamEffects.MAUI.pdb" target="lib\net8.0-ios17" />
+	</files>
+</package>
