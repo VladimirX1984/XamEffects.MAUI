@@ -1,6 +1,5 @@
 ﻿using Android.Views;
 
-using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 using Microsoft.Maui.Controls.Platform;
 
 using XamEffects.Droid.GestureCollectors;
@@ -13,7 +12,8 @@ namespace XamEffects.Droid
     public class CommandsPlatform : PlatformEffect
     {
         public View View => Control ?? Container;
-        public bool IsDisposed => (Container as IVisualElementRenderer)?.Element == null;
+
+        public bool IsDisposed = true;// => (Container as IVisualElementRenderer)?.Element == null;
 
         DateTime _tapTime;
         readonly Rect _rect = new Rect();
@@ -25,6 +25,7 @@ namespace XamEffects.Droid
 
         protected override void OnAttached()
         {
+            IsDisposed = false;
             View.Clickable = true;
             View.LongClickable = true;
             View.SoundEffectsEnabled = true;
@@ -86,6 +87,7 @@ namespace XamEffects.Droid
         protected override void OnDetached()
         {
             if (IsDisposed) return;
+            IsDisposed = true;
             TouchCollector.Delete(View, OnTouch);
         }
     }

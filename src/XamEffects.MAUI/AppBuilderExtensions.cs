@@ -33,7 +33,7 @@ namespace XamEffects.MAUI
                 handlers.Add<Commands, iOS.CommandsPlatform>();
                 handlers.Add<TouchEffect, iOS.TouchEffectPlatform>();
 #elif MACCATALYST
-#elif WINDOWS                
+#elif WINDOWS
 #endif
             });
             return builder;

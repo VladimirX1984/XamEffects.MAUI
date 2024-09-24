@@ -19,10 +19,11 @@ using View = Android.Views.View;
 
 namespace XamEffects.Droid
 {
-    public class TouchEffectPlatform : Microsoft.Maui.Controls.Platform.PlatformEffect
+    public class TouchEffectPlatform : Microsoft.Maui.Controls.Platform.PlatformEffect//PlatformEffect<ViewGroup, View>
     {
         public bool EnableRipple => Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop;
-        public bool IsDisposed => (Container as IVisualElementRenderer)?.Element == null;
+
+        public bool IsDisposed = true; //=> (Container as IVisualElementRenderer)?.Element == null;
         public View View => Control ?? Container;
 
         Color _color;
@@ -37,6 +38,7 @@ namespace XamEffects.Droid
 
         protected override void OnAttached()
         {
+            IsDisposed = false;
             if (Control is ListView || Control is ScrollView)
             {
                 return;
@@ -65,6 +67,7 @@ namespace XamEffects.Droid
         protected override void OnDetached()
         {
             if (IsDisposed) return;
+            IsDisposed = true;
 
             (Container as ViewGroup)?.RemoveView(_viewOverlay);
             _viewOverlay.Pressed = false;
